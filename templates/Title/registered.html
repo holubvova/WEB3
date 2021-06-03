@@ -1,0 +1,81 @@
+{% extends 'fotozone.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title_page %}
+     <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="#"><img class="nav-logo" src="{% static '../static/image/logo_top.jpg' %}"></a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="photo-illusion-logo"  class="nav-link" onclick="window.pageChoose ('fotozone',false)" href="{% url 'fotozone_n' %}"> Photo Illusion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a id="fotoroom-buttom" class="nav-link" aria-current="page" onclick="window.pageChoose ('fotozone',false)" href="{% url 'fotozone_n' %}">FotoRooms</a>
+                </li>
+                <li class="nav-item">
+                    <a id="about-buttom" class="nav-link"  href="{% url 'about_n' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="signinregistr-buttom" class="nav-link shown-is-registered" onclick="window.pageChoose ('sign-in',false)" href="{% url 'sign_in' %}"> Sign in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+        <div class="container-xxl">
+        <div class="row">
+            <div class="col-registred">
+                <form name="registered-form" method="post">{% csrf_token %}
+                    {{ form }}
+{#                    <div class="mb-3">#}
+{#                        <label for="exampleInputEmail1" class="form-label">Name</label>#}
+{#                        <input type="text" name="name"  class="form-control" id="exampleInputEmail1" placeholder="Name" />#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="exampleInputEmail1" class="form-label">Email</label>#}
+{#                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-label="Email"  aria-describedby="emailHelp">#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="InputPassword" class="form-label">Password</label>#}
+{#                        <input type="password" name="password"  class="form-control" id="InputPassword">#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="InputPassword" class="form-label">Password</label>#}
+{#                        <input type="password" name="repeat_password"  class="form-control" id="InputPassword">#}
+{#                    </div>#}
+{#                    <div class="form-check-inline">#}
+{#                        <input name="gender"  class="form-check-input" type="radio"  value="women" id="woman" checked>#}
+{#                        <label class="form-check-label" for="woman">#}
+{#                            Woman#}
+{#                        </label>#}
+{#                        <input name="gender" class="form-check-input" type="radio" value="man" id="man" >#}
+{#                        <label class="form-check-label" for="man">#}
+{#                            Man#}
+{#                        </label>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="inputDate">Input date of birth:</label>#}
+{#                        <input type="date" name="date" class="form-control" id="inputDate">#}
+{#                    </div>#}
+                    <span>{{  error  }} </span>
+                    <button type="submit" onclick="window.contrl('registr',event)" class="btn btn-primary ">Registered</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

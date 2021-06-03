@@ -1,0 +1,67 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {background:  url({% static  '../static/image/backgraung.jpg'%}); }
+    </style>
+    <title>{% block title %}
+    Fotozone
+    {% endblock %}</title>
+
+</head>
+<body>
+
+{% block title_page %}
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="#"><img class="nav-logo" src="{% static '../static/image/logo_top.jpg' %}"></a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="photo-illusion-logo"  class="nav-link" onclick="window.pageChoose('fotozone',true)" href="{% url 'fotozone_y' %}"> Photo Illusion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a id="fotoroom-buttom" class="nav-link" aria-current="page" onclick="window.pageChoose('fotozone',true)" href="{% url 'fotozone_y' %}">FotoRooms</a>
+                </li>
+                <li class="nav-item">
+                    <a id="about-buttom" class="nav-link" onclick="window.pageChoose('about-site',true)" href="{% url 'about_y' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="Me-buttom" class="nav-link" onclick="window.pageProf('profile',true)" href="{% url 'profile' %}"> Me</a>
+                </li>
+                <li class="nav-item">
+                    <a id="signout-buttom" class="nav-link" onclick=" window.contrl('signout',event)" href="{% url 'fotozone_n' %}"> Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
+

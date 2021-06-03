@@ -1,0 +1,61 @@
+{% extends 'fotozone.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title_page %}
+  <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="#"><img class="nav-logo" src="{% static '../static/image/logo_top.jpg' %}"></a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="photo-illusion-logo"  class="nav-link" onclick="window.pageChoose('fotozone',true)" href="{% url 'fotozone_y' %}"> Photo Illusion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a id="fotoroom-buttom" class="nav-link" aria-current="page" onclick="window.pageChoose('fotozone',true)" href="{% url 'fotozone_y' %}">FotoRooms</a>
+                </li>
+                <li class="nav-item">
+                    <a id="about-buttom" class="nav-link" onclick="window.pageChoose('about-site',true)" href="{% url 'about_y' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="Me-buttom" class="nav-link" onclick="window.pageProf('profile',true)" href="{% url 'profile' %}"> Me</a>
+                </li>
+                <li class="nav-item">
+                    <a id="signout-buttom" class="nav-link" onclick=" window.contrl('signout',event)" href="{% url 'fotozone_n' %}"> Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+<div class="container-xxl">
+        <div class="col-about">
+            <div class="row">
+                <div class="about-logo">
+                    <a><img class="logo-about-site" src="{% static '../static/image/logo_top.jpg' %}"> </a>
+                    <b class="text-about-name">Photo Illusion</b>
+                </div>
+                <div class="about-logo">
+                    <p class="text-about"> Привіт!
+                        Це Web-додаток що пропонує тобі обрати місце для проведення фотосесії.
+                        Всі фотозали вже підготовлені ні про що турбуватися не потрібно.
+                        Кожна фотозала містить зону для створення макіяжу.
+                        Всі зали мають професійе освітлення та готові прийняти участь у створенні фотографії.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

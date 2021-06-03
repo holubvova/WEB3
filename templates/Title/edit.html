@@ -1,0 +1,84 @@
+{% extends 'fotozone.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title_page %}
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="#"><img class="nav-logo" src="{% static '../static/image/logo_top.jpg' %}"></a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="photo-illusion-logo"  class="nav-link" onclick="window.pageChoose ('fotozone',false)" href="{% url 'fotozone_y' %}"> Photo Illusion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a id="fotoroom-buttom" class="nav-link" aria-current="page" onclick="window.pageChoose ('fotozone',false)" href="{% url 'fotozone_y' %}">FotoRooms</a>
+                </li>
+                <li class="nav-item">
+                    <a id="about-buttom" class="nav-link"  href="{% url 'about_y' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="signinregistr-buttom" class="nav-link shown-is-registered" onclick="window.pageChoose ('sign-in',false)" href="{% url 'sign_in' %}"> Sign in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+ <div class="container-xxl">
+        <div class="row">
+            <div class="col-edit">
+                <form name="edit-name" method="post"> {% csrf_token%}
+                    {{ form }}
+{#                    <div class="mb-3">#}
+{#                        <label for="Name" class="form-label">Name</label>#}
+{#                        <input type="text" name="name"  class="form-control" id="Name" placeholder="Name" />#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="Surname" class="form-label">Surname</label>#}
+{#                        <input type="text" name="surname"  class="form-control" id="Surname" placeholder="Surname" />#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="exampleInputEmail1" class="form-label">Email</label>#}
+{#                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-label="Email"  aria-describedby="emailHelp">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="inputDate">Input date of birth:</label>#}
+{#                        <input type="date" name="date" class="form-control" id="inputDate">#}
+{#                    </div>#}
+{#                    <div class="form-check-inline">#}
+{#                        <input name="gender"  class="form-check-input" type="radio"  value="women" id="woman">#}
+{#                        <label class="form-check-label" for="woman">#}
+{#                            Woman#}
+{#                        </label>#}
+{#                        <input name="gender" class="form-check-input" type="radio" value="man" id="man" checked>#}
+{#                        <label class="form-check-label" for="man">#}
+{#                            Man#}
+{#                        </label>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="BookDate">Booking date:</label>#}
+{#                        <input type="date" name="bookdate" class="form-control" id="BookDate">#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="number" class="form-label">Number</label>#}
+{#                        <input type="text" name="number"  class="form-control" id="number" placeholder="380000000000" />#}
+{#                    </div>#}
+                    <button type="submit"  class="btn btn-primary ">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

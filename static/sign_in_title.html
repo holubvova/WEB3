@@ -1,0 +1,15 @@
+{% extends 'fotozone.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+               <div class="container-xxl">
+          <div class="row">
+            <div class="col">
+              <form method="post" >
+                  {% csrf_token %}
+               </form>
+            </div>
+          </div>
+        </div>
+    {% endblock %}

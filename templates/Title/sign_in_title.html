@@ -1,0 +1,66 @@
+{% extends 'fotozone.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title_page %}
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="#"><img class="nav-logo" src="{% static '../static/image/logo_top.jpg' %}"></a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="photo-illusion-logo"  class="nav-link" onclick="window.pageChoose ('fotozone',false)" href="{% url 'fotozone_n' %}"> Photo Illusion</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a id="fotoroom-buttom" class="nav-link" aria-current="page" onclick="window.pageChoose ('fotozone',false)" href="{% url 'fotozone_n' %}">FotoRooms</a>
+                </li>
+                <li class="nav-item">
+                    <a id="about-buttom" class="nav-link"  href="{% url 'about_n' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="signinregistr-buttom" class="nav-link shown-is-registered" onclick="window.pageChoose ('sign-in',false)" href="{% url 'sign_in' %}"> Sign in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col">
+                <form method="post" >
+                    {% csrf_token %}
+                    {{ form }}
+{#                    <div class="mb-3">#}
+{#                        <label for="exampleInputEmail1" class="form-label">Sign in </label>#}
+{#                        <input type="email"  name="email"  class="form-control" id="exampleInputEmail1" placeholder="Email" aria-label="Email"  aria-describedby="emailHelp">#}
+{#                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>#}
+{#                    </div>#}
+{#                    <div class="mb-3">#}
+{#                        <label for="exampleInputPassword1" class="form-label">Password</label>#}
+{#                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">#}
+{#                    </div>#}
+                    <button type="submit" onclick=" window.contrl('Sign_control',event)"  class="btn btn-primary">Sign in</button>
+                    <a class="register-link"  onclick="window.pageChoose('registered',false)" href="{% url 'register' %}"> Create account </a>
+                    <a class="forgot-password" onclick="window.pageChoose('forgot-password-st',false)" href="{% url 'forgot_password' %}"> Forgot password </a>
+                    <span> {{ error }}</span>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
